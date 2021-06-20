@@ -13,8 +13,10 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:4001/events", event);
   // Comment Service
   axios.post("http://localhost:4002/events", event);
-  // Query Service -- SOON
+  // Query Service
   axios.post("http://localhost:4003/events", event);
+  // Moderation Service
+  axios.post("http://localhost:4004/events", event);
 
   res.json({ status: "OK" });
 });
