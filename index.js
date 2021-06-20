@@ -15,6 +15,8 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:4002/events", event);
   // Query Service -- SOON
   // axios.post("http://localhost:4003/events",event);
+
+  res.json({ status: "OK" });
 });
 
 app.listen(4000, () => {
