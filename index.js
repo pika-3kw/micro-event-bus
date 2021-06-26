@@ -6,8 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const events = [];
+
 app.post("/events", (req, res) => {
   const event = req.body;
+
+  events.push(event);
 
   // Post Service
   axios.post("http://localhost:4001/events", event);
@@ -19,6 +23,10 @@ app.post("/events", (req, res) => {
   axios.post("http://localhost:4004/events", event);
 
   res.json({ status: "OK" });
+});
+
+app.get("/events/", (req, res) => {
+  res.json(events);
 });
 
 app.listen(4000, () => {
