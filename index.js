@@ -8,6 +8,10 @@ app.use(express.urlencoded({ extended: false }));
 
 const events = [];
 
+app.get(/^\/$/, (req, res) => {
+  res.send("Event Bus Service");
+});
+
 app.post("/events", (req, res) => {
   const event = req.body;
 
