@@ -18,13 +18,13 @@ app.post("/events", (req, res) => {
   events.push(event);
 
   // Post Service
-  axios.post("http://localhost:4001/events", event);
-  // Comment Service
-  axios.post("http://localhost:4002/events", event);
-  // Query Service
-  axios.post("http://localhost:4003/events", event);
-  // Moderation Service
-  axios.post("http://localhost:4004/events", event);
+  axios.post("http://post-clusterip-srv:4001/events", event);
+  // // Comment Service
+  // axios.post("http://localhost:4002/events", event);
+  // // Query Service
+  // axios.post("http://localhost:4003/events", event);
+  // // Moderation Service
+  // axios.post("http://localhost:4004/events", event);
 
   res.json({ status: "OK" });
 });
